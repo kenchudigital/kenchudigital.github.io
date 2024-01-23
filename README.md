@@ -1,6 +1,6 @@
 # Personal Website
 
-kenchu.github.io
+kenchudigital.github.io
 
 ## Source
 
