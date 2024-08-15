@@ -208,8 +208,14 @@ article {
 
 .icon-box ion-icon { --ionicon-stroke-width: 35px; }
 
+/**
+   * Hide all sections by default
+   */
 article { display: none; }
 
+/**
+   * Hide all sections by default
+   */
 article.active {
   display: block;
   animation: fade 0.5s ease backwards;

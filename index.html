@@ -5,15 +5,18 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ken Chu - Personal Portfolio</title>
+  <title>vCard - Personal Portfolio</title>
+
   <!--
     - favicon
   -->
   <link rel="shortcut icon" href="./assets/images/logo.ico" type="image/x-icon">
+
   <!--
     - custom css link
   -->
   <link rel="stylesheet" href="./assets/css/style.css">
+
   <!--
     - google font link
   -->
@@ -23,11 +26,21 @@
 </head>
 
 <body>
+
+
   <!--
     - #MAIN
   -->
+  
+  
   <main>
-    <!-- #SIDEBAR -->
+
+
+    <!--
+      - #SIDEBAR
+    -->
+
+
     <aside class="sidebar" data-sidebar>
       <div class="sidebar-info">
         <figure class="avatar-box">
@@ -42,7 +55,6 @@
           <ion-icon name="chevron-down"></ion-icon>
         </button>
       </div>
-      <!-- #contact -->
       <div class="sidebar-info_more">
         <div class="separator"></div>
         <ul class="contacts-list">
@@ -84,7 +96,6 @@
           </li>
         </ul>
         <div class="separator"></div>
-        <!-- #social icon -->
         <ul class="social-list">
           <li class="social-item">
             <a href="https://github.com/kenchudigital" class="social-link">
@@ -99,18 +110,23 @@
         </ul>
       </div>
     </aside>
+
+
     <!--
       - #main-content
     -->
+    
+    
     <div class="main-content">
 
       <!--
         - #NAVBAR
       -->
+      
       <nav class="navbar">
         <ul class="navbar-list">
           <li class="navbar-item">
-            <button class="navbar-link  active" data-nav-link>About</button>
+            <button class="navbar-link active" data-nav-link>About</button>
           </li>
           <li class="navbar-item">
             <button class="navbar-link" data-nav-link>Resume</button>
@@ -123,33 +139,37 @@
           </li>
         </ul>
       </nav>
+
       <!--
         - #ABOUT
       -->
-      <article class="about  active" data-page="about">
 
+      <article class="About  active" data-page="About">
         <header>
           <h2 class="h2 article-title">About me</h2>
         </header>
+
         <section class="about-text">
           <p>
             I'm Data Engineer from Hong Kong, my expertise lies in the intricate realms of ETL processes, Cloud technologies, and data pipelines.
           </p>
+
           <p>
             I thrive on navigating the complexities of data, continually exploring new skills and emerging technologies such as AI, IoT, NLP, and cloud computing. 
             My commitment to staying at the forefront of data innovation fuels my passion for creating efficient and robust solutions.
           </p>
         </section>
+
         <!--
           - service
         -->
+
         <section class="service">
           <h3 class="h3 service-title">What i'm doing</h3>
           <ul class="service-list">
             <li class="service-item">
               <div class="service-icon-box">
-                <img src="./assets/images/icon-engineering.svg
-                " alt="engineering icon" width="40">
+                <img src="./assets/images/icon-engineering.svg" alt="engineering icon" width="40">
               </div>
               <div class="service-content-box">
                 <h4 class="h4 service-item-title">Data Engineering & Architecture</h4>
@@ -182,7 +202,6 @@
               </div>
             </li>
             <li class="service-item">
-
               <div class="service-icon-box">
                 <img src="./assets/images/icon-phone.svg" alt="mobile icon" width="40">
               </div>
@@ -194,12 +213,13 @@
               </div>
             </li>
           </ul>
-
         </section> 
+
       <!--
         - #RESUME
       -->
-      <article class="resume" data-page="resume">
+
+      <article class="Resume" data-page="Resume">
 
         <header>
           <h2 class="h2 article-title">Resume</h2>
@@ -285,128 +305,70 @@
                 <h5 class="h5"> More ... </h5>
               </div>
             </li>
-            
+
       <!--
         - #PORTFOLIO
       -->
 
-      <article class="project" data-page="project">
-
+      <article class="Project" data-page="Project">
         <header>
           <h2 class="h2 article-title">Project</h2>
         </header>
-
         <section class="projects">
-
           <ul class="filter-list">
-
             <li class="filter-item">
               <button class="active" data-filter-btn>All</button>
             </li>
-
             <li class="filter-item">
               <button data-filter-btn>Web development</button>
             </li>
-
           </ul>
 
           <div class="filter-select-box">
-
             <button class="filter-select" data-select>
-
               <div class="select-value" data-selecct-value>Select category</div>
-
               <div class="select-icon">
                 <ion-icon name="chevron-down"></ion-icon>
               </div>
-
             </button>
 
             <ul class="select-list">
-
               <li class="select-item">
                 <button data-select-item>All</button>
               </li>
-
               <li class="select-item">
                 <button data-select-item>Web design</button>
               </li>
-
               <li class="select-item">
                 <button data-select-item>Applications</button>
               </li>
-
               <li class="select-item">
                 <button data-select-item>Web development</button>
               </li>
-
             </ul>
-
           </div>
 
           <ul class="project-list">
-
             <li class="project-item  active" data-filter-item data-category="web development">
               <a href="#">
-
                 <figure class="project-img">
                   <div class="project-item-icon-box">
                     <ion-icon name="eye-outline"></ion-icon>
                   </div>
-
                   <img src="./assets/images/project-1.jpg" alt="personal" loading="lazy">
                 </figure>
-
                 <h3 class="project-title">Personal Website</h3>
-
                 <p class="project-category">Web development</p>
-
               </a>
             </li>
-      <!--
-        - #BLOG
-      -->
-      <article class="blog" data-page="blog">
 
-        <header>
-          <h2 class="h2 article-title">Blog</h2>
-        </header>
 
-        <section class="blog-posts">
-
-          <ul class="blog-posts-list">
-
-            <li class="blog-post-item">
-              <a href="#">
-
-                <figure class="blog-banner-box">
-                  <img src="./assets/images/blog-1.jpg" alt="Design conferences in 2022" loading="lazy">
-                </figure>
-
-                <div class="blog-content">
-
-                  <div class="blog-meta">
-                    <p class="blog-category">Design</p>
-
-                    <span class="dot"></span>
-
-                    <time datetime="2022-02-23">Fab 23, 2022</time>
-                  </div>
-
-                  <h3 class="h3 blog-item-title">Design conferences in 2022</h3>
-
-                  <p class="blog-text">
-                    Veritatis et quasi architecto beatae vitae dicta sunt, explicabo.
-                  </p>
-
-                </div>
-
-              </a>
-            </li>
       <!--
         - #CONTACT
       -->
-      <article class="contact" data-page="contact">
+
+
+      <article class="Contact" data-page="Contact">
         <header>
           <h2 class="h2 article-title">Contact</h2>
         </header>
@@ -434,14 +396,23 @@
       </article>
     </div>
   </main>
+
+
+
+
+
+
   <!--
     - custom js link
   -->
   <script src="./assets/js/script.js"></script>
+
   <!--
     - ionicon link
   -->
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
 </body>
+
 </html>
