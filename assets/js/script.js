@@ -5,6 +5,37 @@
 // element toggle function
 const elementToggleFunc = function (elem) { elem.classList.toggle("active"); }
 
+// Category toggle function
+const showCategory = function (category) {
+  const filterItems = document.querySelectorAll("[data-filter-item]");
+  for (let i = 0; i < filterItems.length; i++) {
+      if (category === "all" || category === filterItems[i].dataset.category) {
+          filterItems[i].classList.add("active");
+      } else {
+          filterItems[i].classList.remove("active");
+      }
+  }
+
+  // Update the selected filter button
+  for (let i = 0; i < filterBtn.length; i++) {
+      if (filterBtn[i].innerText.toLowerCase() === category) {
+          lastClickedBtn.classList.remove("active");
+          filterBtn[i].classList.add("active");
+          lastClickedBtn = filterBtn[i];
+      }
+  }
+
+  // Update URL hash without adding to history
+  history.replaceState(null, null, `#${category}`);
+};
+
+// Check if URL has a hash and trigger the corresponding category filter
+window.addEventListener("DOMContentLoaded", function () {
+  if (window.location.hash) {
+      const category = window.location.hash.substring(1).toLowerCase();
+      showCategory(category);
+  }
+});
 
 
 // sidebar variables
@@ -104,12 +135,14 @@ for (let i = 0; i < filterBtn.length; i++) {
     let selectedValue = this.innerText.toLowerCase();
     selectValue.innerText = this.innerText;
     filterFunc(selectedValue);
+    showCategory(selectedValue);
 
     lastClickedBtn.classList.remove("active");
     this.classList.add("active");
     lastClickedBtn = this;
 
   });
+
 
 }
 
