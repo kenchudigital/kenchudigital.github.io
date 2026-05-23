@@ -1,0 +1,148 @@
+/* Privacy policy pages — shared layout for kenchudigital.github.io */
+
+.privacy-page {
+  min-height: 100vh;
+  background: var(--smoky-black);
+  color: var(--light-gray);
+  font-family: var(--ff-poppins);
+  font-size: var(--fs-6);
+  font-weight: var(--fw-300);
+  line-height: 1.7;
+}
+
+.privacy-wrap {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 48px 24px 80px;
+}
+
+.privacy-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--orange-yellow-crayola);
+  font-size: var(--fs-7);
+  font-weight: var(--fw-500);
+  text-decoration: none;
+  margin-bottom: 28px;
+  transition: opacity var(--transition-1);
+}
+
+.privacy-back:hover {
+  opacity: 0.85;
+}
+
+.privacy-header {
+  margin-bottom: 32px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--jet);
+}
+
+.privacy-logo {
+  width: 64px;
+  height: 64px;
+  border-radius: 12px;
+  margin-bottom: 16px;
+  background: var(--eerie-black-2);
+  object-fit: contain;
+}
+
+.privacy-title {
+  font-size: var(--fs-1);
+  font-weight: var(--fw-600);
+  color: var(--white-2);
+  margin-bottom: 8px;
+}
+
+.privacy-subtitle {
+  font-size: var(--fs-5);
+  color: var(--light-gray-70);
+}
+
+.privacy-meta {
+  margin-top: 12px;
+  font-size: var(--fs-7);
+  color: var(--light-gray-70);
+}
+
+.privacy-card {
+  background: var(--border-gradient-onyx);
+  background-clip: padding-box;
+  border: 1px solid var(--jet);
+  border-radius: 14px;
+  padding: 20px 22px;
+  margin-bottom: 20px;
+  box-shadow: var(--shadow-1);
+}
+
+.privacy-card h2 {
+  font-size: var(--fs-3);
+  font-weight: var(--fw-600);
+  color: var(--white-2);
+  margin-bottom: 12px;
+}
+
+.privacy-card h3 {
+  font-size: var(--fs-4);
+  font-weight: var(--fw-500);
+  color: var(--orange-yellow-crayola);
+  margin: 16px 0 8px;
+}
+
+.privacy-card p {
+  margin-bottom: 10px;
+}
+
+.privacy-card p:last-child {
+  margin-bottom: 0;
+}
+
+.privacy-card ul {
+  margin: 8px 0 0 1.2em;
+  padding: 0;
+}
+
+.privacy-card li {
+  margin-bottom: 6px;
+}
+
+.privacy-card li:last-child {
+  margin-bottom: 0;
+}
+
+.privacy-highlight {
+  color: var(--white-2);
+  font-weight: var(--fw-500);
+}
+
+.privacy-note {
+  font-size: var(--fs-7);
+  color: var(--light-gray-70);
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid var(--jet);
+}
+
+.privacy-lang-divider {
+  margin: 40px 0 24px;
+  text-align: center;
+  font-size: var(--fs-7);
+  color: var(--vegas-gold);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.privacy-contact a {
+  color: var(--orange-yellow-crayola);
+  text-decoration: none;
+}
+
+.privacy-contact a:hover {
+  text-decoration: underline;
+}
+
+@media (min-width: 580px) {
+  .privacy-wrap {
+    padding: 64px 32px 96px;
+  }
+}
