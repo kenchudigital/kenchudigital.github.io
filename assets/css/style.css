@@ -972,7 +972,8 @@ main {
   100% { transform: scale(1); }
 }
 
-.project-item > a { width: 100%; }
+.project-item > a,
+.project-card { width: 100%; }
 
 .project-img {
   position: relative;
@@ -995,7 +996,8 @@ main {
   transition: var(--transition-1);
 }
 
-.project-item > a:hover .project-img::before { background: hsla(0, 0%, 0%, 0.5); }
+.project-item > a:hover .project-img::before,
+.project-card:hover .project-img::before { background: hsla(0, 0%, 0%, 0.5); }
 
 .project-item-icon-box {
   --scale: 0.8;
@@ -1021,6 +1023,35 @@ main {
 
 .project-item-icon-box ion-icon { --ionicon-stroke-width: 50px; }
 
+.project-link-list {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: flex;
+  gap: 12px;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 2;
+  transition: var(--transition-1);
+}
+
+.project-card:hover .project-link-list {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.project-link-list .project-item-icon-box {
+  position: static;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: scale(var(--scale));
+  opacity: 1;
+}
+
+.project-link-list .project-item-icon-box:hover { --scale: 1; }
+
 .project-img img {
   width: 100%;
   height: 100%;
@@ -1028,7 +1059,8 @@ main {
   transition: var(--transition-1);
 }
 
-.project-item > a:hover img { transform: scale(1.1); }
+.project-item > a:hover img,
+.project-card:hover img { transform: scale(1.1); }
 
 .project-title,
 .project-category { margin-left: 10px; }
