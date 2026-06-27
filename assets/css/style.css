@@ -1030,15 +1030,28 @@ main {
   display: flex;
   gap: 12px;
   transform: translate(-50%, -50%);
-  opacity: 0;
-  pointer-events: none;
+  opacity: 1;
+  pointer-events: all;
   z-index: 2;
   transition: var(--transition-1);
 }
 
-.project-card:hover .project-link-list {
-  opacity: 1;
-  pointer-events: all;
+@media (hover: hover) and (pointer: fine) {
+  .project-link-list {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .project-card:hover .project-link-list {
+    opacity: 1;
+    pointer-events: all;
+  }
+}
+
+@media (hover: none), (pointer: coarse) {
+  .project-card .project-img::before {
+    background: hsla(0, 0%, 0%, 0.5);
+  }
 }
 
 .project-link-list .project-item-icon-box {
