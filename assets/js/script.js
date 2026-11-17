@@ -54,10 +54,18 @@ const selectValue = document.querySelector("[data-select-value]");
 const filterBtn = document.querySelectorAll("[data-filter-btn]");
 const filterItems = document.querySelectorAll("[data-filter-item]");
 
+const normalizeCategory = function (value) {
+    return String(value || "").trim().toLowerCase();
+};
+
 // Filter function
 const filterFunc = function (selectedValue) {
+    const category = normalizeCategory(selectedValue);
+
     for (let i = 0; i < filterItems.length; i++) {
-        if (selectedValue === "all" || selectedValue === filterItems[i].dataset.category) {
+        const itemCategory = normalizeCategory(filterItems[i].dataset.category);
+
+        if (category === "all" || category === itemCategory) {
             filterItems[i].classList.add("active");
         } else {
             filterItems[i].classList.remove("active");
@@ -66,64 +74,56 @@ const filterFunc = function (selectedValue) {
 };
 
 // Category toggle function
-const showCategory = function (category) {
+const showCategory = function (selectedValue) {
+    const category = normalizeCategory(selectedValue) || "applications";
+
     filterFunc(category);
 
-    // Update active button
     for (let i = 0; i < filterBtn.length; i++) {
-        if (filterBtn[i].innerText.toLowerCase() === category) {
-            document.querySelector(".active[data-filter-btn]")?.classList.remove("active");
-            filterBtn[i].classList.add("active");
+        const isMatch = normalizeCategory(filterBtn[i].textContent) === category;
+        filterBtn[i].classList.toggle("active", isMatch);
+
+        if (isMatch) {
+            selectValue.textContent = filterBtn[i].textContent.trim();
+            lastClickedBtn = filterBtn[i];
         }
     }
 
-    // Update URL hash without adding to history
     history.replaceState(null, null, `#${category}`);
 };
 
+let lastClickedBtn = filterBtn[1] || filterBtn[0];
+
 // Check if URL has a hash and apply category filter
 const checkHashAndApplyCategory = function () {
-    if (window.location.hash) {
-        const category = window.location.hash.substring(1).toLowerCase();
-        showCategory(category);
+    const hashCategory = normalizeCategory(window.location.hash.substring(1));
+    const validCategories = ["all", "applications", "playground"];
+
+    if (validCategories.includes(hashCategory)) {
+        showCategory(hashCategory);
     } else {
         showCategory("applications");
     }
 };
 
-// Run checkHashAndApplyCategory on page load
+checkHashAndApplyCategory();
 window.addEventListener("DOMContentLoaded", checkHashAndApplyCategory);
-
-// Run checkHashAndApplyCategory when hash changes
 window.addEventListener("hashchange", checkHashAndApplyCategory);
-
-// Add event to all filter buttons for large screens
-let lastClickedBtn = filterBtn[1];
 
 for (let i = 0; i < filterBtn.length; i++) {
     filterBtn[i].addEventListener("click", function () {
-        let selectedValue = this.innerText.toLowerCase();
-        selectValue.innerText = this.innerText;
-        filterFunc(selectedValue);
-        showCategory(selectedValue);
-
-        lastClickedBtn.classList.remove("active");
-        this.classList.add("active");
-        lastClickedBtn = this;
+        showCategory(this.textContent);
     });
 }
 
-// Add event in all select items
 select.addEventListener("click", function () {
     elementToggleFunc(this);
 });
 
 for (let i = 0; i < selectItems.length; i++) {
     selectItems[i].addEventListener("click", function () {
-        let selectedValue = this.innerText.toLowerCase();
-        selectValue.innerText = this.innerText;
         elementToggleFunc(select);
-        showCategory(selectedValue);
+        showCategory(this.textContent);
     });
 }
 
@@ -156,6 +156,10 @@ for (let i = 0; i < navigationLinks.length; i++) {
                 pages[j].classList.add("active");
                 navigationLinks[j].classList.add("active");
                 window.scrollTo(0, 0);
+
+                if (pages[j].dataset.page === "project") {
+                    checkHashAndApplyCategory();
+                }
             } else {
                 pages[j].classList.remove("active");
                 navigationLinks[j].classList.remove("active");
