@@ -86,6 +86,8 @@ const checkHashAndApplyCategory = function () {
     if (window.location.hash) {
         const category = window.location.hash.substring(1).toLowerCase();
         showCategory(category);
+    } else {
+        showCategory("applications");
     }
 };
 
@@ -96,7 +98,7 @@ window.addEventListener("DOMContentLoaded", checkHashAndApplyCategory);
 window.addEventListener("hashchange", checkHashAndApplyCategory);
 
 // Add event to all filter buttons for large screens
-let lastClickedBtn = filterBtn[0];
+let lastClickedBtn = filterBtn[1];
 
 for (let i = 0; i < filterBtn.length; i++) {
     filterBtn[i].addEventListener("click", function () {
